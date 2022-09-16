@@ -4,15 +4,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
+import utilities.SeleniumUtility;
 
-import utilites.SeleniumUtils;
-
-public class Actitime extends SeleniumUtils{
+public class Actitime extends SeleniumUtility{
 	static WebDriver driver;
 	@Test
 	public void a_openBrowserAndAppURL() {
-		setUp("https://demo.actitime.com/login.do");
-		driver=SeleniumUtils.driver;
+		driver=setUp("chrome","https://demo.actitime.com/login.do");
 	}
 	@Test
 	public void b_login() {

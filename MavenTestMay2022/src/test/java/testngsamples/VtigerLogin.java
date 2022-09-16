@@ -5,9 +5,9 @@ import org.openqa.selenium.Keys;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import utilites.BaseUtil;
+import utilities.SeleniumUtility;
 
-public class VtigerLogin extends BaseUtil {
+public class VtigerLogin extends SeleniumUtility {
 
 	@DataProvider
 	public Object[][] getCred() {

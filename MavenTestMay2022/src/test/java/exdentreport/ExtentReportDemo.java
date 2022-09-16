@@ -36,7 +36,7 @@ public class ExtentReportDemo{
 		//TestCaseName � Name of the test
 		//Description � Description of the test
 		//Starting test
-		test = report.startTest("passTest");
+		test = report.startTest("TestCase1");
 		Assert.assertTrue(true);
 		//To generate the log when the test case is passed
 		test.log(LogStatus.PASS, "TestCase1 is pased");
@@ -44,14 +44,14 @@ public class ExtentReportDemo{
 	
 	@Test
 	public void testCase2(){
-		test = report.startTest("failTest");
+		test = report.startTest("TestCase2");
 		Assert.assertTrue(false);
 		test.log(LogStatus.FAIL, "TestCase2 is failed");
 	}
 	
 	@Test
 	public void skipTest(){
-		test = report.startTest("skipTest");
+		test = report.startTest("TestCase3");
 		throw new SkipException("Skipping - This is not ready for testing ");
 	}
 	
@@ -59,9 +59,9 @@ public class ExtentReportDemo{
 	public void getResult(ITestResult result){
 		if(result.getStatus() == ITestResult.FAILURE){
 			test.log(LogStatus.FAIL, "Test Case Failed is "+result.getName());
-			test.log(LogStatus.FAIL, "Test Case Failed is "+result.getThrowable());
+			test.log(LogStatus.FAIL, "Test Case Failed due to "+result.getThrowable());
 		}else if(result.getStatus() == ITestResult.SKIP){
-			test.log(LogStatus.SKIP, "Test Case Skipped is "+result.getName());
+			test.log(LogStatus.SKIP, "Test Case Skipped due to "+result.getName());
 		}
 		// ending test
 		//endTest(logger) : It ends the current test and prepares to create HTML report
