@@ -41,6 +41,15 @@ public class VtigerLeadsPage extends SeleniumUtility{
 	@FindBy(xpath="//a[contains(text(),'Champak')]")
 	private WebElement newlyCreatedLeadName;
 	
+	@FindBy(xpath="//tr[td[span[span[a[contains(text(),'Champak')]]]]]/td[1]//input")
+	private WebElement newlyCreatedLeadCheckBox;
+	
+	@FindBy(id="Leads_listView_massAction_LBL_DELETE")
+	private WebElement deleteLeadLink;
+	
+	@FindBy(xpath="//button[@data-bb-handler='confirm']")
+	private WebElement yesButtonOnConfirmPopup;
+	
 	public void createNewLead(String fname,String lname,String number) {
 		clickOnElement(addLead);
 		clickOnElement(salotaionForLead);
@@ -50,6 +59,12 @@ public class VtigerLeadsPage extends SeleniumUtility{
 		typeInput(contactNumberOfLead, number);
 		clickOnElement(saveButtonForLead);
 		clickOnElement(leadHeaderLink);
+	}
+	
+	public void deleteCreatedLead() {
+		clickOnElement(newlyCreatedLeadCheckBox);
+		clickOnElement(deleteLeadLink);
+		clickOnElement(yesButtonOnConfirmPopup);
 	}
 	
 	public boolean checkLeadCreation() {

@@ -2,6 +2,7 @@ package utilities;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 import java.util.Properties;
@@ -60,6 +61,11 @@ public class SeleniumUtility {
 		action = new Actions(driver);
 		return driver;
 	}
+	
+	public String getValueFromPropertyFile(String key) {
+		return properties.getProperty(key);
+	}
+
 
 	public static WebDriver getDriver() {
 		return driver;

@@ -16,9 +16,9 @@ public class TestLoginPage extends SeleniumUtility{
 		WebDriver driver =setUp("chrome", "https://demo.vtiger.com/vtigercrm/index.php");
 		VtigerLoginPage getVtigerLoginPage=new VtigerLoginPage(driver);		
 		//step2: login with valid cred in vtiger
-		getVtigerLoginPage.loginInVtiger("admin", "Test@123");
+		getVtigerLoginPage.loginInVtiger(getValueFromPropertyFile("username"),getValueFromPropertyFile("password") );
 		//Step3: validate Vtiger home page opened or not
-		Assert.assertEquals(getCurrentTitleOfApplication(), "Dashboard","Login was not successfull or title got changed");
+		Assert.assertEquals(getCurrentTitleOfApplication(), getValueFromPropertyFile("expectedHomePageTitle"),"Login was not successfull or title got changed");
 		//step4: close the browser
 		cleanUp();
 	}

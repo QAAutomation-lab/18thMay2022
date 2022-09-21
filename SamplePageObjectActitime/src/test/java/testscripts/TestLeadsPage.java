@@ -32,9 +32,10 @@ public class TestLeadsPage extends SeleniumUtility{
 		Assert.assertTrue(getVtigerLeadsPage.checkLeadCreation(),"Leads not created");
 	}
 	
-	@Test
+	@Test(dependsOnMethods="testLeadCreation")
 	public void testLeadDeletion() {
-		//TODO:
+		getVtigerLeadsPage.deleteCreatedLead();
+		Assert.assertTrue(getVtigerLeadsPage.checkLeadCreation(),"Created Leadis not deleted");
 	}
 	@AfterTest
 	public void tearDown() {
